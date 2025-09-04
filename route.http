@@ -9,16 +9,16 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:3333/videos
+GET http://localhost:3333/videos?search=Test
 
 ###
 
-PUT http://localhost:3333/videos/61125a2c-485c-4045-a5a9-da59a33d3253
+PUT http://localhost:3333/videos/2a479166-a48a-485d-96ac-2d4014124665
 Content-Type: application/json
 
 {
-    "title":"Video 06",
-    "description": "Test",
+    "title":"Test",
+    "description": "Loremin",
     "duration": 150
 }
 

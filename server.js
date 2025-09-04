@@ -1,11 +1,12 @@
 import {fastify} from 'fastify'
-import { DatabaseMemory } from './database-memory.js'
+import { DatabaseMemory } from './database-postgres.js'
 const server = fastify()
 
 const database = new DatabaseMemory()
 
-server.get('/videos', () => {
-  const videos = database.list()
+server.get('/videos', (request, reply)=> {
+  const search = request.query.search
+  const videos = database.list(search)
 
   return videos
 })

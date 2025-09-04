@@ -1,0 +1,20 @@
+
+services:
+  postgres-db:
+    container_name: video-database
+    image: postgres:17.4
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+    volumes:
+      - pg-data:/var/lib/postgresql/data\   
+      - ./db-scripts:/docker-entrypoint-initdb.d
+
+
+volumes:
+  pg-data:
+ 
